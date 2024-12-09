@@ -1,0 +1,10 @@
+#!/bin/bash
+
+dir_proj=/mnt/chaelab/rachelle/zzOtherzz/XiaoMei/HDstress
+
+## filter orthofam data for brassica and arabidopsis genes only
+f_orthofam_full=${dir_proj}/data/orthofam/genefamily_data.ORTHOFAM.csv
+f_orthofam_filt=${dir_proj}/data/orthofam/genefamily_data.ORTHOFAM.ath-bra.tsv
+awk '$2=="ath" || $2=="bra"' ${f_orthofam_full} > ${f_orthofam_filt}
+
+## map go terms to ath genes in orthofam
