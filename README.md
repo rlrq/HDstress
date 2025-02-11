@@ -23,7 +23,7 @@ Script files
   - Converts cx2 format to tsv file
     - To be used by plot_for_manuscript.R for plotting network layouts
   - Cytoscape's network layout seems cleaner than the layouts available through ggraph, so we use it instead
-  - Open *.edges in Cytoscape and exporting as cx2 format to obtain cx2 files
+  - Open *.edges in Cytoscape and export layout as cx2 format to obtain cx2 files
 - plot_for_manuscript.R
   - Generate plots for figures 5, 6, S14, and S15
 
