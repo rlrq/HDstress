@@ -26,6 +26,7 @@ Analysis of network dispersion and master regulatory nodes.
 ### Script files
 network_analysis.py
  - Main script for analysis of network dispersion and master regulatory nodes
+ - Module 'basics' is homemade; see https://github.com/rlrq/misc_scripts/blob/master/basics.py
 
 cx2_to_tsv.py
  - Converts cx2 format to tsv file
