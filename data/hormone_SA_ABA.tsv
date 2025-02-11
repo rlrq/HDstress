@@ -1,0 +1,217 @@
+sample	condition	metric	subject	units	value
+ZH01	B10_0hr_Control	intensity	ABA_153		1564.53
+ZH02	B10_0hr_Control	intensity	ABA_153		1510.38
+ZH03	B10_0hr_Control	intensity	ABA_153		1526.52
+ZH04	B10_0hr_HD	intensity	ABA_153		1618.66
+ZH05	B10_0hr_HD	intensity	ABA_153		1603.99
+ZH06	B10_0hr_HD	intensity	ABA_153		1688.41
+ZH07	B10_24hr_Control	intensity	ABA_153		1209.39
+ZH08	B10_24hr_Control	intensity	ABA_153		1234.89
+ZH09	B10_24hr_Control	intensity	ABA_153		1375.76
+ZH10	B10_24hr_HD	intensity	ABA_153		1919.37
+ZH11	B10_24hr_HD	intensity	ABA_153		1883.27
+ZH12	B10_24hr_HD	intensity	ABA_153		2078.67
+ZH13	B11_0hr_Control	intensity	ABA_153		1549.63
+ZH14	B11_0hr_Control	intensity	ABA_153		1436.01
+ZH15	B11_0hr_Control	intensity	ABA_153		1540.26
+ZH16	B11_0hr_HD	intensity	ABA_153		2254.25
+ZH17	B11_0hr_HD	intensity	ABA_153		2261.84
+ZH18	B11_0hr_HD	intensity	ABA_153		2339.43
+ZH19	B11_24hr_Control	intensity	ABA_153		1470.17
+ZH20	B11_24hr_Control	intensity	ABA_153		1356.19
+ZH21	B11_24hr_Control	intensity	ABA_153		1837.29
+ZH22	B11_24hr_HD	intensity	ABA_153		3210.82
+ZH23	B11_24hr_HD	intensity	ABA_153		3959.33
+ZH24	B11_24hr_HD	intensity	ABA_153		4077.16
+ZH01	B10_0hr_Control	intensity	SA_93		11135.58
+ZH02	B10_0hr_Control	intensity	SA_93		10983.43
+ZH03	B10_0hr_Control	intensity	SA_93		5946.61
+ZH04	B10_0hr_HD	intensity	SA_93		20731.23
+ZH05	B10_0hr_HD	intensity	SA_93		20738.32
+ZH06	B10_0hr_HD	intensity	SA_93		19295.93
+ZH07	B10_24hr_Control	intensity	SA_93		10637.46
+ZH08	B10_24hr_Control	intensity	SA_93		16596.99
+ZH09	B10_24hr_Control	intensity	SA_93		12628.23
+ZH10	B10_24hr_HD	intensity	SA_93		9478.04
+ZH11	B10_24hr_HD	intensity	SA_93		7877.7
+ZH12	B10_24hr_HD	intensity	SA_93		7889.28
+ZH13	B11_0hr_Control	intensity	SA_93		23881.92
+ZH14	B11_0hr_Control	intensity	SA_93		21570.56
+ZH15	B11_0hr_Control	intensity	SA_93		16291.68
+ZH16	B11_0hr_HD	intensity	SA_93		20900.26
+ZH17	B11_0hr_HD	intensity	SA_93		20524.69
+ZH18	B11_0hr_HD	intensity	SA_93		25518.83
+ZH19	B11_24hr_Control	intensity	SA_93		11521.96
+ZH20	B11_24hr_Control	intensity	SA_93		10989.06
+ZH21	B11_24hr_Control	intensity	SA_93		24294.33
+ZH22	B11_24hr_HD	intensity	SA_93		6520.22
+ZH23	B11_24hr_HD	intensity	SA_93		6437.58
+ZH24	B11_24hr_HD	intensity	SA_93		8012.72
+ZH01	B10_0hr_Control	intensity	Peak_Uknw		10515.29
+ZH02	B10_0hr_Control	intensity	Peak_Uknw		8971.95
+ZH03	B10_0hr_Control	intensity	Peak_Uknw		10781.41
+ZH04	B10_0hr_HD	intensity	Peak_Uknw		8864.5
+ZH05	B10_0hr_HD	intensity	Peak_Uknw		13546.73
+ZH06	B10_0hr_HD	intensity	Peak_Uknw		11243.39
+ZH07	B10_24hr_Control	intensity	Peak_Uknw		10684.49
+ZH08	B10_24hr_Control	intensity	Peak_Uknw		9663.71
+ZH09	B10_24hr_Control	intensity	Peak_Uknw		8765.76
+ZH10	B10_24hr_HD	intensity	Peak_Uknw		15959.79
+ZH11	B10_24hr_HD	intensity	Peak_Uknw		16570.3
+ZH12	B10_24hr_HD	intensity	Peak_Uknw		16795.73
+ZH13	B11_0hr_Control	intensity	Peak_Uknw		8298.82
+ZH14	B11_0hr_Control	intensity	Peak_Uknw		6570.69
+ZH15	B11_0hr_Control	intensity	Peak_Uknw		8874.7
+ZH16	B11_0hr_HD	intensity	Peak_Uknw		8039.22
+ZH17	B11_0hr_HD	intensity	Peak_Uknw		7106.57
+ZH18	B11_0hr_HD	intensity	Peak_Uknw		7025.32
+ZH19	B11_24hr_Control	intensity	Peak_Uknw		13145.56
+ZH20	B11_24hr_Control	intensity	Peak_Uknw		7824.87
+ZH21	B11_24hr_Control	intensity	Peak_Uknw		8615.4
+ZH22	B11_24hr_HD	intensity	Peak_Uknw		12921.06
+ZH23	B11_24hr_HD	intensity	Peak_Uknw		12638.35
+ZH24	B11_24hr_HD	intensity	Peak_Uknw		11334.32
+ZH01	B10_0hr_Control	Calculated conc from calibration	ABA	ppb	7.98
+ZH02	B10_0hr_Control	Calculated conc from calibration	ABA	ppb	7.69
+ZH03	B10_0hr_Control	Calculated conc from calibration	ABA	ppb	7.77
+ZH04	B10_0hr_HD	Calculated conc from calibration	ABA	ppb	8.27
+ZH05	B10_0hr_HD	Calculated conc from calibration	ABA	ppb	8.19
+ZH06	B10_0hr_HD	Calculated conc from calibration	ABA	ppb	8.64
+ZH07	B10_24hr_Control	Calculated conc from calibration	ABA	ppb	6.07
+ZH08	B10_24hr_Control	Calculated conc from calibration	ABA	ppb	6.21
+ZH09	B10_24hr_Control	Calculated conc from calibration	ABA	ppb	6.96
+ZH10	B10_24hr_HD	Calculated conc from calibration	ABA	ppb	9.88
+ZH11	B10_24hr_HD	Calculated conc from calibration	ABA	ppb	9.69
+ZH12	B10_24hr_HD	Calculated conc from calibration	ABA	ppb	10.74
+ZH13	B11_0hr_Control	Calculated conc from calibration	ABA	ppb	7.9
+ZH14	B11_0hr_Control	Calculated conc from calibration	ABA	ppb	7.29
+ZH15	B11_0hr_Control	Calculated conc from calibration	ABA	ppb	7.85
+ZH16	B11_0hr_HD	Calculated conc from calibration	ABA	ppb	11.68
+ZH17	B11_0hr_HD	Calculated conc from calibration	ABA	ppb	11.72
+ZH18	B11_0hr_HD	Calculated conc from calibration	ABA	ppb	12.14
+ZH19	B11_24hr_Control	Calculated conc from calibration	ABA	ppb	7.47
+ZH20	B11_24hr_Control	Calculated conc from calibration	ABA	ppb	6.86
+ZH21	B11_24hr_Control	Calculated conc from calibration	ABA	ppb	9.44
+ZH22	B11_24hr_HD	Calculated conc from calibration	ABA	ppb	16.82
+ZH23	B11_24hr_HD	Calculated conc from calibration	ABA	ppb	20.83
+ZH24	B11_24hr_HD	Calculated conc from calibration	ABA	ppb	21.47
+ZH01	B10_0hr_Control	Calculated conc from calibration	SA	ppb	10.01221311
+ZH02	B10_0hr_Control	Calculated conc from calibration	SA	ppb	9.84600343
+ZH03	B10_0hr_Control	Calculated conc from calibration	SA	ppb	4.34374761
+ZH04	B10_0hr_HD	Calculated conc from calibration	SA	ppb	20.49456528
+ZH05	B10_0hr_HD	Calculated conc from calibration	SA	ppb	20.50231044
+ZH06	B10_0hr_HD	Calculated conc from calibration	SA	ppb	18.92663397
+ZH07	B10_24hr_Control	Calculated conc from calibration	SA	ppb	9.468063491
+ZH08	B10_24hr_Control	Calculated conc from calibration	SA	ppb	15.97829388
+ZH09	B10_24hr_Control	Calculated conc from calibration	SA	ppb	11.64279394
+ZH10	B10_24hr_HD	Calculated conc from calibration	SA	ppb	8.201505336
+ZH11	B10_24hr_HD	Calculated conc from calibration	SA	ppb	6.453283228
+ZH12	B10_24hr_HD	Calculated conc from calibration	SA	ppb	6.465933298
+ZH13	B11_0hr_Control	Calculated conc from calibration	SA	ppb	23.93640008
+ZH14	B11_0hr_Control	Calculated conc from calibration	SA	ppb	21.41145498
+ZH15	B11_0hr_Control	Calculated conc from calibration	SA	ppb	15.6447712
+ZH16	B11_0hr_HD	Calculated conc from calibration	SA	ppb	20.67921478
+ZH17	B11_0hr_HD	Calculated conc from calibration	SA	ppb	20.2689396
+ZH18	B11_0hr_HD	Calculated conc from calibration	SA	ppb	25.7245715
+ZH19	B11_24hr_Control	Calculated conc from calibration	SA	ppb	10.4342972
+ZH20	B11_24hr_Control	Calculated conc from calibration	SA	ppb	9.85215368
+ZH21	B11_24hr_Control	Calculated conc from calibration	SA	ppb	24.38691952
+ZH22	B11_24hr_HD	Calculated conc from calibration	SA	ppb	4.970363007
+ZH23	B11_24hr_HD	Calculated conc from calibration	SA	ppb	4.880086519
+ZH24	B11_24hr_HD	Calculated conc from calibration	SA	ppb	6.600779978
+ZH01	B10_0hr_Control	Final Vol: 0.1mL	ABA	ng	0.8
+ZH02	B10_0hr_Control	Final Vol: 0.1mL	ABA	ng	0.77
+ZH03	B10_0hr_Control	Final Vol: 0.1mL	ABA	ng	0.78
+ZH04	B10_0hr_HD	Final Vol: 0.1mL	ABA	ng	0.83
+ZH05	B10_0hr_HD	Final Vol: 0.1mL	ABA	ng	0.82
+ZH06	B10_0hr_HD	Final Vol: 0.1mL	ABA	ng	0.86
+ZH07	B10_24hr_Control	Final Vol: 0.1mL	ABA	ng	0.61
+ZH08	B10_24hr_Control	Final Vol: 0.1mL	ABA	ng	0.62
+ZH09	B10_24hr_Control	Final Vol: 0.1mL	ABA	ng	0.7
+ZH10	B10_24hr_HD	Final Vol: 0.1mL	ABA	ng	0.99
+ZH11	B10_24hr_HD	Final Vol: 0.1mL	ABA	ng	0.97
+ZH12	B10_24hr_HD	Final Vol: 0.1mL	ABA	ng	1.07
+ZH13	B11_0hr_Control	Final Vol: 0.1mL	ABA	ng	0.79
+ZH14	B11_0hr_Control	Final Vol: 0.1mL	ABA	ng	0.73
+ZH15	B11_0hr_Control	Final Vol: 0.1mL	ABA	ng	0.78
+ZH16	B11_0hr_HD	Final Vol: 0.1mL	ABA	ng	1.17
+ZH17	B11_0hr_HD	Final Vol: 0.1mL	ABA	ng	1.17
+ZH18	B11_0hr_HD	Final Vol: 0.1mL	ABA	ng	1.21
+ZH19	B11_24hr_Control	Final Vol: 0.1mL	ABA	ng	0.75
+ZH20	B11_24hr_Control	Final Vol: 0.1mL	ABA	ng	0.69
+ZH21	B11_24hr_Control	Final Vol: 0.1mL	ABA	ng	0.94
+ZH22	B11_24hr_HD	Final Vol: 0.1mL	ABA	ng	1.68
+ZH23	B11_24hr_HD	Final Vol: 0.1mL	ABA	ng	2.08
+ZH24	B11_24hr_HD	Final Vol: 0.1mL	ABA	ng	2.15
+ZH01	B10_0hr_Control	Final Vol: 0.1mL	SA	ng	1
+ZH02	B10_0hr_Control	Final Vol: 0.1mL	SA	ng	0.98
+ZH03	B10_0hr_Control	Final Vol: 0.1mL	SA	ng	0.43
+ZH04	B10_0hr_HD	Final Vol: 0.1mL	SA	ng	2.05
+ZH05	B10_0hr_HD	Final Vol: 0.1mL	SA	ng	2.05
+ZH06	B10_0hr_HD	Final Vol: 0.1mL	SA	ng	1.89
+ZH07	B10_24hr_Control	Final Vol: 0.1mL	SA	ng	0.95
+ZH08	B10_24hr_Control	Final Vol: 0.1mL	SA	ng	1.6
+ZH09	B10_24hr_Control	Final Vol: 0.1mL	SA	ng	1.16
+ZH10	B10_24hr_HD	Final Vol: 0.1mL	SA	ng	0.82
+ZH11	B10_24hr_HD	Final Vol: 0.1mL	SA	ng	0.65
+ZH12	B10_24hr_HD	Final Vol: 0.1mL	SA	ng	0.65
+ZH13	B11_0hr_Control	Final Vol: 0.1mL	SA	ng	2.39
+ZH14	B11_0hr_Control	Final Vol: 0.1mL	SA	ng	2.14
+ZH15	B11_0hr_Control	Final Vol: 0.1mL	SA	ng	1.56
+ZH16	B11_0hr_HD	Final Vol: 0.1mL	SA	ng	2.07
+ZH17	B11_0hr_HD	Final Vol: 0.1mL	SA	ng	2.03
+ZH18	B11_0hr_HD	Final Vol: 0.1mL	SA	ng	2.57
+ZH19	B11_24hr_Control	Final Vol: 0.1mL	SA	ng	1.04
+ZH20	B11_24hr_Control	Final Vol: 0.1mL	SA	ng	0.99
+ZH21	B11_24hr_Control	Final Vol: 0.1mL	SA	ng	2.44
+ZH22	B11_24hr_HD	Final Vol: 0.1mL	SA	ng	0.5
+ZH23	B11_24hr_HD	Final Vol: 0.1mL	SA	ng	0.49
+ZH24	B11_24hr_HD	Final Vol: 0.1mL	SA	ng	0.66
+ZH01	B10_0hr_Control	Absolute (0.4g FW)	ABA	ug/g FW	1.99
+ZH02	B10_0hr_Control	Absolute (0.4g FW)	ABA	ug/g FW	1.92
+ZH03	B10_0hr_Control	Absolute (0.4g FW)	ABA	ug/g FW	1.94
+ZH04	B10_0hr_HD	Absolute (0.4g FW)	ABA	ug/g FW	2.07
+ZH05	B10_0hr_HD	Absolute (0.4g FW)	ABA	ug/g FW	2.05
+ZH06	B10_0hr_HD	Absolute (0.4g FW)	ABA	ug/g FW	2.16
+ZH07	B10_24hr_Control	Absolute (0.4g FW)	ABA	ug/g FW	1.52
+ZH08	B10_24hr_Control	Absolute (0.4g FW)	ABA	ug/g FW	1.55
+ZH09	B10_24hr_Control	Absolute (0.4g FW)	ABA	ug/g FW	1.74
+ZH10	B10_24hr_HD	Absolute (0.4g FW)	ABA	ug/g FW	2.47
+ZH11	B10_24hr_HD	Absolute (0.4g FW)	ABA	ug/g FW	2.42
+ZH12	B10_24hr_HD	Absolute (0.4g FW)	ABA	ug/g FW	2.68
+ZH13	B11_0hr_Control	Absolute (0.4g FW)	ABA	ug/g FW	1.97
+ZH14	B11_0hr_Control	Absolute (0.4g FW)	ABA	ug/g FW	1.82
+ZH15	B11_0hr_Control	Absolute (0.4g FW)	ABA	ug/g FW	1.96
+ZH16	B11_0hr_HD	Absolute (0.4g FW)	ABA	ug/g FW	2.92
+ZH17	B11_0hr_HD	Absolute (0.4g FW)	ABA	ug/g FW	2.93
+ZH18	B11_0hr_HD	Absolute (0.4g FW)	ABA	ug/g FW	3.03
+ZH19	B11_24hr_Control	Absolute (0.4g FW)	ABA	ug/g FW	1.87
+ZH20	B11_24hr_Control	Absolute (0.4g FW)	ABA	ug/g FW	1.71
+ZH21	B11_24hr_Control	Absolute (0.4g FW)	ABA	ug/g FW	2.36
+ZH22	B11_24hr_HD	Absolute (0.4g FW)	ABA	ug/g FW	4.2
+ZH23	B11_24hr_HD	Absolute (0.4g FW)	ABA	ug/g FW	5.21
+ZH24	B11_24hr_HD	Absolute (0.4g FW)	ABA	ug/g FW	5.37
+ZH01	B10_0hr_Control	Absolute (0.4g FW)	SA	ug/g FW	2.5
+ZH02	B10_0hr_Control	Absolute (0.4g FW)	SA	ug/g FW	2.46
+ZH03	B10_0hr_Control	Absolute (0.4g FW)	SA	ug/g FW	1.09
+ZH04	B10_0hr_HD	Absolute (0.4g FW)	SA	ug/g FW	5.12
+ZH05	B10_0hr_HD	Absolute (0.4g FW)	SA	ug/g FW	5.13
+ZH06	B10_0hr_HD	Absolute (0.4g FW)	SA	ug/g FW	4.73
+ZH07	B10_24hr_Control	Absolute (0.4g FW)	SA	ug/g FW	2.37
+ZH08	B10_24hr_Control	Absolute (0.4g FW)	SA	ug/g FW	3.99
+ZH09	B10_24hr_Control	Absolute (0.4g FW)	SA	ug/g FW	2.91
+ZH10	B10_24hr_HD	Absolute (0.4g FW)	SA	ug/g FW	2.05
+ZH11	B10_24hr_HD	Absolute (0.4g FW)	SA	ug/g FW	1.61
+ZH12	B10_24hr_HD	Absolute (0.4g FW)	SA	ug/g FW	1.62
+ZH13	B11_0hr_Control	Absolute (0.4g FW)	SA	ug/g FW	5.98
+ZH14	B11_0hr_Control	Absolute (0.4g FW)	SA	ug/g FW	5.35
+ZH15	B11_0hr_Control	Absolute (0.4g FW)	SA	ug/g FW	3.91
+ZH16	B11_0hr_HD	Absolute (0.4g FW)	SA	ug/g FW	5.17
+ZH17	B11_0hr_HD	Absolute (0.4g FW)	SA	ug/g FW	5.07
+ZH18	B11_0hr_HD	Absolute (0.4g FW)	SA	ug/g FW	6.43
+ZH19	B11_24hr_Control	Absolute (0.4g FW)	SA	ug/g FW	2.61
+ZH20	B11_24hr_Control	Absolute (0.4g FW)	SA	ug/g FW	2.46
+ZH21	B11_24hr_Control	Absolute (0.4g FW)	SA	ug/g FW	6.1
+ZH22	B11_24hr_HD	Absolute (0.4g FW)	SA	ug/g FW	1.24
+ZH23	B11_24hr_HD	Absolute (0.4g FW)	SA	ug/g FW	1.22
+ZH24	B11_24hr_HD	Absolute (0.4g FW)	SA	ug/g FW	1.65
