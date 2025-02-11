@@ -69,3 +69,21 @@ extract_go.R
 
 plot_go.R
  - Generate plots for figures 3B, 4C, S3, S11
+
+
+
+## Hormone measurements
+
+Plot hormone levels.
+
+
+### Data files
+
+hormone_SA_ABA.tsv
+ - Hormone measurements, tsv format
+
+
+### Script files
+
+plot_hormone.R
+ - Generate plot for figure 7A
