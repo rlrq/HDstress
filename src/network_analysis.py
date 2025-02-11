@@ -27,7 +27,8 @@ def nodes_iter(fname):
     return
 
 ## add edges
-def edges_iter(fname):
+## for data from 2024
+def edges_iter_v1(fname):
     with open(fname, 'r') as f:
         header = f.readline() ## skip header
         header = header.rstrip().split('\t')
@@ -35,6 +36,17 @@ def edges_iter(fname):
             entry_split = entry.rstrip().split('\t')
             ## entry_split[2] is regulatoryGene, entry_split[3] is targetGene
             yield entry_split[2:4] + [{header[i]: entry_split[i] for i in range(len(header))}]
+    return
+
+## for 20250210 data
+def edges_iter_v2(fname):
+    with open(fname, 'r') as f:
+        header = f.readline() ## skip header
+        header = header.rstrip().split('\t')
+        for entry in f:
+            entry_split = entry.rstrip().split('\t')
+            ## entry_split[2] is regulatoryGene, entry_split[3] is targetGene
+            yield entry_split[:2] + [{header[i]: entry_split[i] for i in range(len(header))}]
     return
 
 ## function to apply nx.union to multiple graphs simultaneously
@@ -55,6 +67,8 @@ class GraphStats():
         self.group_counts = {}
         self._make_group_counts()
     def _make_group_counts(self):
+        # valid_nodes = [node for node in self.G.nodes.values() if "group" in node]
+        # groups = [node["group"] for node in valid_nodes]
         groups = [node["group"] for node in self.G.nodes.values()]
         self.group_counts = basics.get_count_dict(groups)
     @property
@@ -270,6 +284,9 @@ def write_pruneG_multigroup_membershipatiter_v1(d_pruneG_multigroups, fout, iter
                 df = df.join(df_tmp.set_index("nid"), on = "nid", how = "left")
     df.to_csv(fout, index = False, header = True, sep = '\t', quoting = csv.QUOTE_NONE)
     return
+
+# edges_iter = edges_iter_v1
+edges_iter = edges_iter_v2
 
 def make_graph_from_edges_and_nodes_file(f_edges, f_nodes):
     G = nx.MultiDiGraph()
