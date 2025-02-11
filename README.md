@@ -1,6 +1,22 @@
 # HD stress in *Brassica rapa*
 
-Script files for network analysis:
+## Network analysis
+
+Analysis of network dispersion and master regulatory nodes.
+
+Data files
+- *.edges
+  - Network edge information, tsv format
+- *.nodes
+  - Network node information, tsv format
+- *.cx2
+  - Network layout generated using pfd algorithm in Cytoscape
+  - Exported from Cytoscape
+- *.coord
+  - Network layout information, tsv format
+  - Generated from *.cx2 files using cx2_to_tsv.py
+
+Script files
 - network_analysis.py
   - Main script for analysis of network dispersion and master regulatory nodes
 - cx2_to_tsv.py
@@ -11,7 +27,11 @@ Script files for network analysis:
 - plot_for_manuscript.R
   - Generate plots for figures 5, 6, S14, and S15
 
-Script files for GO enrichment analysis of BLAST-mappable and -unmappable genes
+## GO enrichment (Brassica mapping sanity check)
+
+GO enrichment analysis of BLAST-mappable and -unmappable genes.
+
+Script files
 - orthofam_analysis.sh
   - Filter orthofam data for Brassica and Arabidopsis genes only
 - orthofam_analysis.R
@@ -19,7 +39,11 @@ Script files for GO enrichment analysis of BLAST-mappable and -unmappable genes
 - plot_enrichment.R
   - Generate plots for figures S5, S6, S7
 
-Script files for GO hierarchy analysis:
+## GO hierarchy
+
+Map higher level GO terms to lower level terms.
+
+Script files
 - extract_go.R
   - Subset go.obo to extract relevant GO terms and all of their parental nodes (direct and indirect)
 - plot_go.R
