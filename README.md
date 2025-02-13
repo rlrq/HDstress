@@ -43,6 +43,11 @@ plot_for_manuscript.R
 
 GO enrichment analysis of BLAST-mappable and -unmappable genes.
 
+### Data files
+
+go.obo
+ - Download from https://geneontology.org/docs/download-ontology/
+
 
 ### Script files
 
@@ -68,7 +73,7 @@ extract_go.R
  - Subset go.obo to extract relevant GO terms and all of their parental nodes (direct and indirect)
 
 plot_go.R
- - Generate plots for figures 3B, 4C, S3, S11
+ - Generate plots for figures 3B, 4D, S3, S11
 
 
 
