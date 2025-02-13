@@ -321,28 +321,28 @@ for network_name in network_names:
     pruneG_serial_maxinit = make_pruneG_multigroup(G, SuccessivelyPrunedGraphStats_MaxOutAtInit,
                                                    groups, include_all = include_all_group)
     execute_pruneG_multigroup(pruneG_serial_maxinit, maxdepth = maxdepth, print_iteration = print_iteration)
-    # write_pruneG_multigroup(pruneG_serial_maxinit,
-    #                         fout = dir_proj + f"/results/network/{network_name}.prune.maxOutAtInit.tsv")
+    write_pruneG_multigroup(pruneG_serial_maxinit,
+                            fout = dir_proj + f"/results/network/{network_name}.prune.maxOutAtInit.tsv")
     ## prune nodes in order of decreasing out-degree to TFs (determined by initial graph)
     pruneG_serial_maxinit2TF = make_pruneG_multigroup(G, SuccessivelyPrunedGraphStats_MaxOutAtInit2TF,
                                                       groups, include_all = include_all_group)
     execute_pruneG_multigroup(pruneG_serial_maxinit2TF, maxdepth = maxdepth, print_iteration = print_iteration)
-    # write_pruneG_multigroup(pruneG_serial_maxinit2TF,
-    #                         fout = dir_proj + f"/results/network/{network_name}.prune.maxOutAtInit2TF.tsv")
+    write_pruneG_multigroup(pruneG_serial_maxinit2TF,
+                            fout = dir_proj + f"/results/network/{network_name}.prune.maxOutAtInit2TF.tsv")
     ########### PRUNE ORDER RE-DETERMINED AT EACH ITERATION ##############
     ## prune nodes with max out-degree at each iteration
     pruneG_serial_maxdynamic = make_pruneG_multigroup(G, SuccessivelyPrunedGraphStats_MaxOutDynamic,
                                                       groups, include_all = include_all_group)
     execute_pruneG_multigroup(pruneG_serial_maxdynamic, maxdepth = maxdepth, print_iteration = print_iteration)
-    # write_pruneG_multigroup(pruneG_serial_maxdynamic,
-    #                         fout = dir_proj + f"/results/network/{network_name}.prune.maxOutDynamic.tsv")
+    write_pruneG_multigroup(pruneG_serial_maxdynamic,
+                            fout = dir_proj + f"/results/network/{network_name}.prune.maxOutDynamic.tsv")
     ## prune nodes with max out-degree to TFs at each iteration
     pruneG_serial_maxdynamic2TF = make_pruneG_multigroup(G, SuccessivelyPrunedGraphStats_MaxOutDynamic2TF,
                                                          groups, include_all = include_all_group)
     execute_pruneG_multigroup(pruneG_serial_maxdynamic2TF, maxdepth = maxdepth,
                               print_iteration = print_iteration)
-    # write_pruneG_multigroup(pruneG_serial_maxdynamic2TF,
-    #                         fout = dir_proj + f"/results/network/{network_name}.prune.maxOutDynamic2TF.tsv")
+    write_pruneG_multigroup(pruneG_serial_maxdynamic2TF,
+                            fout = dir_proj + f"/results/network/{network_name}.prune.maxOutDynamic2TF.tsv")
     ## write subnetwork membership at specific iterations
     write_pruneG_multigroup_membershipatiter(
         {"maxOutAtInit": pruneG_serial_maxinit,
