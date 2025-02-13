@@ -6,10 +6,50 @@ import itertools
 import networkx as nx
 import pandas as pd
 
-import basics
+# import basics
 
 dir_root = "/mnt/chaelab/rachelle"
 dir_proj = dir_root + "/zzOtherzz/XiaoMei/HDstress"
+
+
+#####
+## copied from basics
+#####
+
+def get_count_dict(iterable):
+    output = {}
+    for e in iterable:
+        output[e] = output.get(e, 0) + 1
+    return output
+
+## returns list of sets
+def merge_overlapping(*iters):
+    last_len = len(iters)
+    iters = [set(e) for e in iters]
+    new_iters = []
+    while True:
+        while len(iters) > 0:
+            s1 = iters.pop()
+            i = 0
+            while i < len(iters):
+                if s1 & iters[i]:
+                    s2 = iters.pop(i)
+                    s1.update(s2)
+                else:
+                    i += 1
+            new_iters.append(s1)
+        if len(new_iters) == last_len:
+            break
+        else:
+            last_len = len(new_iters)
+            iters = new_iters
+            new_iters = []
+    return new_iters
+
+
+############
+##  network-analysis
+############
 
 ## add nodes
 def nodes_iter(fname):
@@ -70,7 +110,8 @@ class GraphStats():
         # valid_nodes = [node for node in self.G.nodes.values() if "group" in node]
         # groups = [node["group"] for node in valid_nodes]
         groups = [node["group"] for node in self.G.nodes.values()]
-        self.group_counts = basics.get_count_dict(groups)
+        # self.group_counts = basics.get_count_dict(groups)
+        self.group_counts = get_count_dict(groups) # function copied to this script
     @property
     def size(self):
         return len(self.G)
@@ -495,7 +536,8 @@ class GraphNodeTracker():
     def _set_cyclic_nodes(self):
         cyclic_subgraphs = nx.simple_cycles(self.G)
         ## merge overlapping cyclic graphs
-        merged_subgraphs = basics.merge_overlapping(*cyclic_subgraphs)
+        # merged_subgraphs = basics.merge_overlapping(*cyclic_subgraphs)
+        merged_subgraphs = merge_overlapping(*cyclic_subgraphs) ## function copied to this script
         ## duplicate _raw_nodes into _nodes
         self._nodes = {nid: node for nid, node in self._raw_nodes.items()}
         ## make CyclicNode objects & insert into _nodes
