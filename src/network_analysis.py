@@ -425,16 +425,36 @@ class Node():
         return self
     def is_terminal(self):
         return len(self.children) == 0
-    def all_descendants(self):
-        return self.children + list(itertools.chain(*[node.all_descendants() for node in self.children]))
-    def internal_children(self):
-        return [node for node in self.children if not node.is_terminal()]
-    def internal_descendants(self):
-        return self.internal_children() + list(itertools.chain(*[node.internal_descendants() for node in self.children]))
-    def terminal_children(self):
-        return [node for node in self.children if node.is_terminal()]
-    def terminal_descendants(self):
-        return self.terminal_children() + list(itertools.chain(*[node.terminal_descendants() for node in self.children]))
+    def children_expanded(self):
+        return list(itertools.chain(*[([n] if not isinstance(n, CyclicNode) else n.nodes) for n in self.children]))
+    def all_descendants(self, expand_cyclic = False):
+        if expand_cyclic:
+            children = self.children_expanded()
+        else:
+            children = self.children
+        return list(set(children +
+                        list(itertools.chain(*[node.all_descendants(expand_cyclic = expand_cyclic)
+                                               for node in self.children]))))
+    def internal_children(self, expand_cyclic = False):
+        if expand_cyclic:
+            return list(itertools.chain(*[([node] if not isinstance(node, CyclicNode) else node.nodes)
+                                          for node in self.children if not node.is_terminal()]))
+        else:
+            return [node for node in self.children if not node.is_terminal()]
+    def internal_descendants(self, expand_cyclic = False):
+        return list(set(self.internal_children(expand_cyclic = expand_cyclic) +
+                        list(itertools.chain(*[node.internal_descendants(expand_cyclic = expand_cyclic)
+                                               for node in self.children]))))
+    def terminal_children(self, expand_cyclic = False):
+        if expand_cyclic:
+            return list(itertools.chain(*[([node] if not isinstance(node, CyclicNode) else node.nodes)
+                                          for node in self.children if node.is_terminal()]))
+        else:
+            return [node for node in self.children if node.is_terminal()]
+    def terminal_descendants(self, expand_cyclic = False):
+        return list(set(self.terminal_children(expand_cyclic = expand_cyclic) +
+                        list(itertools.chain(*[node.terminal_descendants(expand_cyclic = expand_cyclic)
+                                               for node in self.children]))))
     def get_property(self, property_name, unlist = False): ## returns list by default; this is so it is compatible with CyclicNode
         result = self.G.nodes[self.id].get(property_name, None)
         if unlist: return result
@@ -609,3 +629,40 @@ for network_name in network_names:
 
 # nodes_with_outdegree = set(nid for nid in G.nodes if G.out_degree(nid) > 0)
 # terminal_out_nodes = [nid for nid in nodes_with_outdegree if sum(edge[1] in nodes_with_outdegree for edge in G.out_edges(nid)) == 0]
+
+
+
+## parse & prune networks (accounting for >1 in-degrees)
+network_names = ("GRN_simplify", "keyGRN_simplify", "TFTF_simplify")
+# network_name = "GRN_simplify"
+write_gnt = write_GNT_cache_v1
+for network_name in network_names:
+    print(network_name)
+    ## input
+    f_edges = dir_proj + f"/data/network/{network_name}.edges"
+    f_nodes = dir_proj + f"/data/network/{network_name}.nodes"
+    ## make graph
+    G = make_graph_from_edges_and_nodes_file(f_edges, f_nodes)
+    ## make object to track nodes
+    gnt = GraphNodeTracker(G)
+    for node in gnt.nodes:
+        node.set_cache("group", ','.join(node.get_property("group", unlist = False)))
+    for node in gnt.root_nodes:
+        ## get total number of descendant nodes (expand cyclic nodes to constituent nodes)
+        node.set_internals_bottom_up("descendants", lambda n:len(tuple(n.all_descendants(expand_cyclic = True))))
+        for group in groups:
+            node.set_internals_bottom_up(f"child_{group}",
+                                         lambda n1: sum([sum([x == group for x in n2.get_property("group")])
+                                                         for n2 in n1.children_expanded()]))
+            ## count # of nodes (including those within cyclic nodes) that belong to a given group
+            ## excludes the current parent cyclic node being queried
+            node.set_internals_bottom_up(f"descendant_{group}",
+                                         lambda n1: sum([sum([x == group for x in n2.get_property("group")])
+                                                         for n2 in n1.all_descendants(expand_cyclic = True)]))
+            ## convert count to fraction
+            node.set_internals_bottom_up(f"descendant_fraction_{group}",
+                                         lambda n:n.cache.get(f"descendant_{group}", 0)/n.cache["descendants"])
+    ## write
+    write_gnt(gnt, dir_proj + f"/results/network/{network_name}.descendantStats-20260914.tsv",
+              (["group", "descendants"] +
+               list(itertools.chain(*[[f"child_{group}", f"descendant_{group}", f"descendant_fraction_{group}"] for group in groups]))))

@@ -14,6 +14,8 @@ if (machine_name == "chaelab-rlrq"){
     dir_root <- "/home/rachelle/OneDrive/NUS/CEY"
 } else if (machine_name == "rlrq-home") {
     dir_root <- "/mnt/d/OneDrive_doysd/OneDrive - Default Directory/NUS/CEY"
+} else if (machine_name == "chaelab-ws.nus.edu.sg"){
+    dir_root <- "/mnt/chaelab/rachelle"
 }
 
 dir_proj <- mkpath(dir_root, "/zzOtherzz/XiaoMei/HDstress")
@@ -252,11 +254,13 @@ make_colnames <- make_colnames_v1
 simplify_multinode_group <- simplify_multinode_group_v1
 
 ## parse stats for downstream genes
+suffix <- "descendantStats.tsv"
+suffix <- "descendantStats-20260914.tsv"
 df.descendants <- data.frame()
 for (network_name in names(networks)){
     print(network_name)
     network <- networks[[network_name]]
-    f_descendants <- mkpath(dir_proj, "results", "network", paste0(network, ".descendantStats.tsv"))
+    f_descendants <- mkpath(dir_proj, "results", "network", paste0(network, ".", suffix))
     df.tmp <- read.table(f_descendants, header = TRUE, sep = '\t') %>%
         gather_stats(groups, make_colnames) %>%
         dplyr::mutate(network = network_name,
@@ -744,6 +748,9 @@ library(tidygraph) ## for tbl_graph, activate
 library(ggraph) ## for ggraph
 
 make_cyclic_label_v1 <- function(gid, atg, gene_name){
+    gid <- as.character(gid)
+    atg <- as.character(atg)
+    gene_name <- as.character(gene_name)
     if(is.na(gene_name)){
         if(is.na(atg)){
             return(gid)
@@ -981,13 +988,27 @@ grobs.fig6.v0.GRNkeyGRN <- list(
 
 ## ## i'm gonna save the good jitter
 saveRDS(grobs.fig6.v0.GRNkeyGRN, mkpath(dir_proj, "data", "rds", "fig6_goodjitter.rds"))
+## saveRDS(grobs.fig6.v0.GRNkeyGRN, mkpath(dir_proj, "data", "rds", "fig6_goodjitter-20260914.rds"))
 ## grobs.fig6.v0.GRNkeyGRN <- readRDS(mkpath(dir_proj, "data", "rds", "network_2024", "fig6_goodjitter.rds"))
-grobs.fig6.v0.GRNkeyGRN <- readRDS(mkpath(dir_proj, "data", "rds", "fig6_goodjitter.rds"))
+grobs.fig6.v0.GRNkeyGRN_goodjitter <- readRDS(mkpath(dir_proj, "data", "rds", "fig6_goodjitter.rds"))
+## grobs.fig6.v0.GRNkeyGRN_goodjitter <- readRDS(mkpath(dir_proj, "data", "rds", "fig6_goodjitter-20260914.rds"))
+grobs.fig6.v0.GRNkeyGRN <- grobs.fig6.v0.GRNkeyGRN_goodjitter
 grobs.fig6.v0.GRNkeyGRN[[1]] <- label_subplot_grob('A', fontsize = label_fontsize, plots_downstream.excludeOne[["TFTF"]])
 grobs.fig6.v0.GRNkeyGRN[[4]] <- label_subplot_grob('D', fontsize = label_fontsize, plots.master_highlight[[1]][["GRN"]] + theme(legend.position = "none"))
 grobs.fig6.v0.GRNkeyGRN[[5]] <- label_subplot_grob('E', fontsize = label_fontsize, plots.master_highlight[[1]][["keyGRN"]] + theme(legend.position = "none"))
 grobs.fig6.v0.GRNkeyGRN[[6]] <- label_subplot_grob('F', fontsize = label_fontsize, plots.master_highlight[[2]][["GRN"]] + theme(legend.position = "none"))
 grobs.fig6.v0.GRNkeyGRN[[7]] <- label_subplot_grob('G', fontsize = label_fontsize, plots.master_highlight[[2]][["keyGRN"]] + theme(legend.position = "none"))
+
+saveRDS(grobs.fig6.v0.GRNkeyGRN, mkpath(dir_proj, "data", "rds", "fig6_jitterNotWorking-20260914.rds"))
+saveRDS(
+    list(plots_downstream_nolegend.nrow2 = plots_downstream_nolegend.nrow2,
+         plots_downstream.nrow2.nrow3legend = plots_downstream.nrow2.nrow3legend,
+         plots_downstream_nolegend.nrow1 = plots_downstream_nolegend.nrow1,
+         plots_downstream.nrow1.nrow2legend = plots_downstream.nrow1.nrow2legend,
+         plots_downstream.nrow1.nrow1legend = plots_downstream.nrow1.nrow1legend,
+         plots_downstream.excludeOne = plots_downstream.excludeOne),
+    mkpath(dir_proj, "data", "rds", "plots_downstream-list-20260914.rds"))
+
 
 save_plot("Figure6_v0-a-GRNkeyGRNmaster",
           plot_fig(grobs.fig6.v0.GRNkeyGRN, layout.fig6.v0),
