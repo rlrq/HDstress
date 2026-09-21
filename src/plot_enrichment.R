@@ -111,6 +111,7 @@ save_plot("go_count.overview",
                                     "# brassica genes annotated only by orthofam: 6,754")) +
           theme(legend.position = "bottom"),
           h = 7, w = 7, fmt = c("png", "pdf"))
+## FIGURE S6
 save_plot("FigureSX_Fig7supp_go_count_overview",
           p.go.count.overview +
           ggtitle("GO counting methods via orthofam against blast",
@@ -284,6 +285,7 @@ p.enrich.pvalue.treatmentAll <- ggplot(
     theme_bw() + ylab("GO term") +
     theme(axis.text.x = element_text(angle = 90))
 
+## FIGURE S7
 save_plot("FigureSX_Fig7supp_map_method_overview_best10pvalue_treatmentAll",
           p.enrich.pvalue.treatmentAll +
           theme(axis.title.y = element_blank()) +
@@ -311,6 +313,7 @@ p.enrich.pvalue.treatmentDEG <- ggplot(
     theme_bw() + ylab("GO term") +
     theme(axis.text.x = element_text(angle = 90))
 
+## FIGURE S8
 save_plot("FigureSX_Fig7supp_map_method_overview_best10pvalue_treatmentDEG",
           p.enrich.pvalue.treatmentDEG +
           theme(axis.title.y = element_blank()) +

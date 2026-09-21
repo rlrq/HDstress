@@ -886,7 +886,7 @@ save_plot("Figure5_v2-b-GRNkeyGRNdispersion-arrowhead",
           h = 20, w = 20, units = "cm")
 
 
-## SUPPLEMENTARY
+## SUPPLEMENTARY (now S14, previously S5; variable and file names will continue to use S5/fig5s)
 layout.fig5s.v0 <- rbind(c(1, 1, 3, 3, 3, 3),
                          c(1, 1, 3, 3, 3, 3),
                          c(1, 1, 3, 3, 3, 3),
@@ -964,7 +964,7 @@ save_plot("FigureS5_v2-b-GRNkeyGRNdispersion-arrowhead",
 
 
 #################
-##  FIGURE 6
+##  FIGURE S15 (previously fig6; variable & file names will continue to use 6/fig6)
 #################
 label_fontsize <- 20
 
@@ -1062,7 +1062,7 @@ save_plot("Figure6A_v0-20260914", ## downstream analysis data from 20260914
 
 
 
-## SUPPLEMENTARY
+## SUPPLEMENTARY (now S18, previously S6; variable and file names will continue to use S6/fig6s)
 layout.fig6s.v0 <- rbind(c(1, 1), c(1, 1), c(1, 1), c(1, 1),
                          c(2, 3), c(2, 3), c(2, 3))
 

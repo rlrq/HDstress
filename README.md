@@ -35,7 +35,7 @@ cx2_to_tsv.py
  - Open *.edges in Cytoscape and export layout as cx2 format to obtain cx2 files
 
 plot_for_manuscript.R
- - Generate plots for figures 5, 6, S14, and S15
+ - Generate plots for figures 5, S14, S15, and S18
 
 
 
@@ -58,7 +58,7 @@ orthofam_analysis.R
  - Main script for assigning GO terms to Brassica genes using different methods and analysing enrichment with different universes
 
 plot_enrichment.R
- - Generate plots for figures S5, S6, S7
+ - Generate plots for figures S6, S7, S8
 
 
 
@@ -73,7 +73,7 @@ extract_go.R
  - Subset go.obo to extract relevant GO terms and all of their parental nodes (direct and indirect)
 
 plot_go.R
- - Generate plots for figures 3B, 4D, S3, S11
+ - Generate plots for figures 3B, 4D, S4, S12
 
 
 
@@ -91,4 +91,4 @@ hormone_SA_ABA.tsv
 ### Script files
 
 plot_hormone.R
- - Generate plot for figure 7A
+ - Generate plot for figure 6A

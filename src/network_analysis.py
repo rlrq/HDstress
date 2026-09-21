@@ -598,38 +598,37 @@ def write_GNT_cache_v1(gnt, fout, names):
                  [node.cache.get(name, None) for name in names]))) + '\n')
     return
 
-## parse & prune networks
-network_names = ("GRN_simplify", "keyGRN_simplify", "TFTF_simplify")
-# network_name = "GRN_simplify"
-write_gnt = write_GNT_cache_v1
-for network_name in network_names:
-    print(network_name)
-    ## input
-    f_edges = dir_proj + f"/data/network/{network_name}.edges"
-    f_nodes = dir_proj + f"/data/network/{network_name}.nodes"
-    ## make graph
-    G = make_graph_from_edges_and_nodes_file(f_edges, f_nodes)
-    ## make object to track nodes
-    gnt = GraphNodeTracker(G)
-    for node in gnt.nodes:
-        node.set_cache("group", ','.join(node.get_property("group", unlist = False)))
-    for node in gnt.root_nodes:
-        node.set_internals_bottom_up("descendants", lambda node:len(tuple(node.all_descendants())))
-        for group in groups:
-            node.set_internals_bottom_up(f"child_{group}", make_get_children_property_value_counts("group", group))
-            node.set_internals_bottom_up(f"descendant_{group}", make_tally_descendant_cache(f"child_{group}", f"descendant_{group}"))
-            node.set_internals_bottom_up(f"descendant_fraction_{group}",
-                                         lambda node:node.cache.get(f"descendant_{group}", 0)/node.cache["descendants"])
-    ## write
-    write_gnt(gnt, dir_proj + f"/results/network/{network_name}.descendantStats.tsv",
-              (["group", "descendants"] +
-               list(itertools.chain(*[[f"child_{group}", f"descendant_{group}", f"descendant_fraction_{group}"] for group in groups]))))
+# ## parse & prune networks
+# network_names = ("GRN_simplify", "keyGRN_simplify", "TFTF_simplify")
+# # network_name = "GRN_simplify"
+# write_gnt = write_GNT_cache_v1
+# for network_name in network_names:
+#     print(network_name)
+#     ## input
+#     f_edges = dir_proj + f"/data/network/{network_name}.edges"
+#     f_nodes = dir_proj + f"/data/network/{network_name}.nodes"
+#     ## make graph
+#     G = make_graph_from_edges_and_nodes_file(f_edges, f_nodes)
+#     ## make object to track nodes
+#     gnt = GraphNodeTracker(G)
+#     for node in gnt.nodes:
+#         node.set_cache("group", ','.join(node.get_property("group", unlist = False)))
+#     for node in gnt.root_nodes:
+#         node.set_internals_bottom_up("descendants", lambda node:len(tuple(node.all_descendants())))
+#         for group in groups:
+#             node.set_internals_bottom_up(f"child_{group}", make_get_children_property_value_counts("group", group))
+#             node.set_internals_bottom_up(f"descendant_{group}", make_tally_descendant_cache(f"child_{group}", f"descendant_{group}"))
+#             node.set_internals_bottom_up(f"descendant_fraction_{group}",
+#                                          lambda node:node.cache.get(f"descendant_{group}", 0)/node.cache["descendants"])
+#     ## write
+#     write_gnt(gnt, dir_proj + f"/results/network/{network_name}.descendantStats.tsv",
+#               (["group", "descendants"] +
+#                list(itertools.chain(*[[f"child_{group}", f"descendant_{group}", f"descendant_fraction_{group}"] for group in groups]))))
 
 # nodes = {Node(G, nid) for nid in G.nodes}
 
 # nodes_with_outdegree = set(nid for nid in G.nodes if G.out_degree(nid) > 0)
 # terminal_out_nodes = [nid for nid in nodes_with_outdegree if sum(edge[1] in nodes_with_outdegree for edge in G.out_edges(nid)) == 0]
-
 
 
 ## parse & prune networks (accounting for >1 in-degrees)
