@@ -338,9 +338,14 @@ p.downstream.legend.nrow3 <- gridExtra::grid.arrange(p.downstream.legend.colour.
 ##     theme_bw() +
 ##     theme(legend.position = "none")
 
-plot_downstream_multiple_networks <- function(networks, p.legend, text_colour = "black"){
+## df.label.dummy columns: id, nid, is_pseudonode, group, descendants, stat_group, stat_child, stat_descendant, stat_descendnat_fraction, network, label
+##  - columns with required values: label, stat_descendant, stat_descendant_fraction, (facets: network, stat_group)
+plot_downstream_multiple_networks <- function(networks, p.legend, text_colour = "black",
+                                              force = 2, force_pull = 0.5, min.segment.length = 0.5,
+                                              point.padding = 0, seed = NA, df.label.dummy = data.frame()){
     df.descendants.filtered <- df.descendants %>% dplyr::filter(network %in% networks)
-    df.tolabel.filtered <- df.descendants.tolabel %>% dplyr::filter(network %in% networks)
+    df.tolabel.filtered <- df.descendants.tolabel %>% dplyr::filter(network %in% networks) %>%
+        rbind(df.label.dummy)
     p.downstream <- ggplot(data = df.descendants.filtered,
                            aes(x = stat_descendant, y = stat_descendant_fraction)) +
         geom_point(data = df.descendants.filtered %>% dplyr::filter(!is_pseudonode),
@@ -361,7 +366,9 @@ plot_downstream_multiple_networks <- function(networks, p.legend, text_colour = 
                                      group_colours),
                           drop = FALSE) +
         ggrepel::geom_text_repel(data = df.tolabel.filtered, aes(label = label),
-                                 size = 3, force = 2, force_pull = 0.5, colour = text_colour) +
+                                 size = 3, force = force, force_pull = force_pull, colour = text_colour,
+                                 min.segment.length = min.segment.length, point.padding = point.padding,
+                                 seed = seed) +
         ggh4x::facet_nested(network~stat_group, scales = "free_x", independent = "x") +
         ylab("fraction of downstream genes belonging to group") +
         xlab("number of downstream genes belonging to group") +
@@ -1008,7 +1015,7 @@ saveRDS(
          plots_downstream.nrow1.nrow1legend = plots_downstream.nrow1.nrow1legend,
          plots_downstream.excludeOne = plots_downstream.excludeOne),
     mkpath(dir_proj, "data", "rds", "plots_downstream-list-20260914.rds"))
-
+saveRDS(grobs.fig6.v0.GRNkeyGRN, mkpath(dir_proj, "data", "rds", "fig6_goodjitter-20260915.rds"))
 
 save_plot("Figure6_v0-a-GRNkeyGRNmaster",
           plot_fig(grobs.fig6.v0.GRNkeyGRN, layout.fig6.v0),
@@ -1018,6 +1025,41 @@ save_plot("Figure6_v0-a-GRNkeyGRNmaster",
 save_plot("Figure6_v0-b-GRNkeyGRNmaster-arrowhead",
           plot_fig(grobs.fig6.v0.GRNkeyGRN, layout.fig6.v0),
           h = 12, w = 15)
+
+## just the % group downstream vs # group downstream plot
+grobs.fig6.A.v0.GRNkeyGRN <- grobs.fig6.v0.GRNkeyGRN
+for (i in c(2,3,4,5,6,7)){
+    grobs.fig6.A.v0.GRNkeyGRN[[i]] <- ggplot() + theme_void()
+}
+df.label.dummy.fig6A <- rbind(
+    data.frame(
+        id = NA, nid = NA, is_pseudonode = NA, group = NA, descendants = NA,
+        stat_child = NA, label = '', network = "GRN",
+        stat_group =               c("E_CR", "E_CR", "C",   "C",   "HD",  "HD",  "CHD", "CHD"), 
+        stat_descendant =          c(250,    450,    25,    30,    150,   100,   150,   200),
+        stat_descendant_fraction = c(0.8,    0.6,    0.25,  0.125, 0.4,   0.1,   0.8,   0.75)
+    ),
+    data.frame(
+        id = NA, nid = NA, is_pseudonode = NA, group = NA, descendants = NA,
+        stat_child = NA, label = '', network = "keyGRN",
+        stat_group =               c("E_CR", "E_CR", "C",   "C",   "HD",  "HD",  "CHD", "CHD"), 
+        stat_descendant =          c(200,    100,    15,    30,    25,    50,    50,    50),
+        stat_descendant_fraction = c(0.7,    0.9,    0.007, 0.125, 0.45,  0.3,   0.9,   1)
+    )
+)
+grobs.fig6.A.v0.GRNkeyGRN[[1]] <- label_subplot_grob('A', fontsize = label_fontsize,
+                                                     plot_downstream_multiple_networks(names(list_networks)[
+                                                         names(list_networks) != "TFTF"],
+                                                         p.downstream.legend.nrow1, text_colour = text_colour,
+                                                         ## df.label.dummy = df.label.dummy.fig6A,
+                                                         force = 20, force_pull = 0.5,
+                                                         min.segment.length = 0.5,
+                                                         seed = 5
+                                                         ))
+save_plot("Figure6A_v0-20260914", ## downstream analysis data from 20260914
+          plot_fig(grobs.fig6.A.v0.GRNkeyGRN, layout.fig6.v0),
+          h = 12, w = 15)
+
 
 
 ## SUPPLEMENTARY
@@ -1036,6 +1078,14 @@ save_plot("FigureS6_v0-a-GRNkeyGRNmaster",
 ## v0-b is v0 with arrowheads
 save_plot("FigureS6_v0-b-GRNkeyGRNmaster-arrowhead",
           plot_fig(grobs.fig6s.v0.GRNkeyGRN, layout.fig6s.v0),
+          h = 10, w = 10)
+
+grobs.fig6s.A.v0.GRNkeyGRN <- grobs.fig6s.v0.GRNkeyGRN
+for (i in c(2,3)){
+    grobs.fig6s.A.v0.GRNkeyGRN[[i]] <- ggplot() + theme_void()
+}
+save_plot("FigureS6A_v0-20260914", ## downstream analysis data from 20260914
+          plot_fig(grobs.fig6s.A.v0.GRNkeyGRN, layout.fig6s.v0),
           h = 10, w = 10)
 
 
